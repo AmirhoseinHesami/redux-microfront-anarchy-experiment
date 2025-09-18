@@ -6,7 +6,6 @@ declare module "*.vue" {
   export default component;
 }
 
-// src/svelte-shims.d.ts
 declare module "*.svelte" {
   import { ComponentType } from "svelte";
   const component: ComponentType;
