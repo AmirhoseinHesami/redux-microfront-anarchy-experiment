@@ -5,7 +5,7 @@ import { svelte } from "@sveltejs/vite-plugin-svelte";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  base: "/redux-microfront-anarchy-experiment",
+  base: "/multi-framework-redux/",
   plugins: [
     tailwindcss(),
     react(),
