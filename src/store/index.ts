@@ -7,6 +7,8 @@ import {
 export interface BasketItem {
   id: string;
   name: string;
+  description: string;
+  price: number;
   quantity: number;
 }
 

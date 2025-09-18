@@ -4,10 +4,42 @@ import { store } from "../store";
 import ItemCard from "./ItemCard";
 
 const items = [
-  { id: "1", name: "Apple" },
-  { id: "2", name: "Banana" },
-  { id: "3", name: "Orange" },
-  { id: "4", name: "Kiwi" },
+  { 
+    id: "1", 
+    name: "Premium Headphones", 
+    description: "High-quality wireless headphones with noise cancellation",
+    price: 199.99
+  },
+  { 
+    id: "2", 
+    name: "Smart Watch", 
+    description: "Feature-rich smartwatch with health tracking",
+    price: 249.99
+  },
+  { 
+    id: "3", 
+    name: "Wireless Earbuds", 
+    description: "Compact earbuds with premium sound quality",
+    price: 149.99
+  },
+  { 
+    id: "4", 
+    name: "Tablet Pro", 
+    description: "Powerful tablet for work and entertainment",
+    price: 599.99
+  },
+  { 
+    id: "5", 
+    name: "Gaming Mouse", 
+    description: "High-precision gaming mouse with RGB lighting",
+    price: 79.99
+  },
+  { 
+    id: "6", 
+    name: "Mechanical Keyboard", 
+    description: "Premium mechanical keyboard with customizable switches",
+    price: 129.99
+  }
 ];
 
 function App() {

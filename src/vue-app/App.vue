@@ -45,9 +45,12 @@ onUnmounted(() => {
         :key="item.id"
         class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
       >
-        <div class="flex items-center">
+        <div class="flex flex-col">
           <span class="font-medium text-gray-800">{{ item.name }}</span>
-          <span class="ml-2 text-sm text-gray-500">(x{{ item.quantity }})</span>
+          <div class="flex items-center gap-2 text-sm">
+            <span class="text-gray-500">x{{ item.quantity }}</span>
+            <span class="text-blue-600">${{ (item.price * item.quantity).toFixed(2) }}</span>
+          </div>
         </div>
         <div class="flex items-center gap-2">
           <button
