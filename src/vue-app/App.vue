@@ -26,33 +26,45 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="p-4 border rounded">
-    <h2 class="font-bold mb-2">Basket</h2>
-
-    <div v-if="basket.length === 0" class="text-gray-500 text-center">
-      <!-- <img src="/empty-basket.png" class="mx-auto w-24 h-24 mb-2" /> -->
-      <p>Basket is empty</p>
+  <div class="h-full">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-lg font-semibold text-gray-800">Shopping Cart</h2>
+      <span class="text-sm text-gray-500">{{ basket.length }} items</span>
     </div>
 
-    <ul v-else>
+    <div v-if="basket.length === 0" class="flex flex-col items-center justify-center h-40 bg-gray-50 rounded-lg">
+      <svg class="w-12 h-12 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+      </svg>
+      <p class="text-gray-500 text-sm">Your cart is empty</p>
+    </div>
+
+    <ul v-else class="space-y-3">
       <li
         v-for="item in basket"
         :key="item.id"
-        class="flex items-center justify-between mb-2"
+        class="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
       >
-        <span>{{ item.name }} (x{{ item.quantity }})</span>
-        <div class="flex gap-2">
+        <div class="flex items-center">
+          <span class="font-medium text-gray-800">{{ item.name }}</span>
+          <span class="ml-2 text-sm text-gray-500">(x{{ item.quantity }})</span>
+        </div>
+        <div class="flex items-center gap-2">
           <button
-            class="bg-green-500 text-white px-2 rounded"
+            class="w-8 h-8 flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors duration-200"
             @click="handleIncrement(item.id)"
           >
-            +
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
           </button>
           <button
-            class="bg-red-500 text-white px-2 rounded"
+            class="w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 text-gray-600 rounded-full transition-colors duration-200"
             @click="handleDecrement(item.id)"
           >
-            -
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+            </svg>
           </button>
         </div>
       </li>
