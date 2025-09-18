@@ -6,14 +6,15 @@
     <script type="module" src="/src/main.ts" defer></script>
   </head>
   <body class="min-h-screen w-full bg-gray-50">
-    <div class="container mx-auto px-4 py-8 min-h-screen flex">
-      <div
-        id="react-root"
-        class="flex-1 bg-white rounded-lg shadow-lg p-6 mr-6"
-      ></div>
-      <div class="w-80 flex flex-col bg-white rounded-lg shadow-lg p-4">
-        <div id="vue-root" class="mb-4 bg-gray-50 rounded-md p-4"></div>
-        <div id="svelte-root" class="flex-1 bg-gray-50 rounded-md p-4"></div>
+    <div class="container mx-auto px-4 py-8 min-h-screen flex flex-col lg:flex-row gap-6">
+        <div
+          id="react-root"
+          class="flex-1 bg-white rounded-lg shadow-lg p-6 border-2 border-blue-500"
+        ></div>
+        <div class="w-full lg:w-80 flex flex-col bg-white rounded-lg shadow-lg p-4">
+          <div id="vue-root" class="mb-4 border-2 border-[#41B883] rounded-md"></div>
+          <div id="svelte-root" class="flex-1 bg-gray-50 rounded-md p-4 border-2 border-orange-500"></div>
+        </div>
       </div>
     </div>
   </body>

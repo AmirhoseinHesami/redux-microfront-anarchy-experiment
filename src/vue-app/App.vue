@@ -26,15 +26,30 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="h-full">
+  <div class="h-full bg-gray-50 rounded-lg p-4">
     <div class="flex items-center justify-between mb-4">
-      <h2 class="text-lg font-semibold text-gray-800">Shopping Cart</h2>
+      <h2 class="text-lg font-semibold text-gray-800">
+        Shopping Cart <span class="text-[#41B883] font-bold">(Vue)</span>
+      </h2>
       <span class="text-sm text-gray-500">{{ basket.length }} items</span>
     </div>
 
-    <div v-if="basket.length === 0" class="flex flex-col items-center justify-center h-40 bg-gray-50 rounded-lg">
-      <svg class="w-12 h-12 text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+    <div
+      v-if="basket.length === 0"
+      class="flex flex-col items-center justify-center h-40"
+    >
+      <svg
+        class="w-12 h-12 text-gray-400 mb-2"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+        />
       </svg>
       <p class="text-gray-500 text-sm">Your cart is empty</p>
     </div>
@@ -49,24 +64,46 @@ onUnmounted(() => {
           <span class="font-medium text-gray-800">{{ item.name }}</span>
           <div class="flex items-center gap-2 text-sm">
             <span class="text-gray-500">x{{ item.quantity }}</span>
-            <span class="text-blue-600">${{ (item.price * item.quantity).toFixed(2) }}</span>
+            <span class="text-blue-600"
+              >${{ (item.price * item.quantity).toFixed(2) }}</span
+            >
           </div>
         </div>
         <div class="flex items-center gap-2">
           <button
-            class="w-8 h-8 flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors duration-200"
+            class="w-8 h-8 flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors duration-200 cursor-pointer"
             @click="handleIncrement(item.id)"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              />
             </svg>
           </button>
           <button
-            class="w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 text-gray-600 rounded-full transition-colors duration-200"
+            class="w-8 h-8 flex items-center justify-center bg-gray-200 hover:bg-gray-300 text-gray-600 rounded-full transition-colors duration-200 cursor-pointer"
             @click="handleDecrement(item.id)"
           >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20 12H4"
+              />
             </svg>
           </button>
         </div>

@@ -6,6 +6,7 @@
     id: string;
     name: string;
     quantity: number;
+    price: number
   }
 
   const basket = readable<Item[]>(store.getState().basket, (set) => {
@@ -23,7 +24,7 @@
 <div class="h-full flex flex-col justify-between">
   <div>
     <div class="flex items-center justify-between mb-4">
-      <h2 class="text-lg font-semibold text-gray-800">Order Summary</h2>
+      <h2 class="text-lg font-semibold text-gray-800">Order Summary <span class="text-orange-500 font-bold">(Svelte)</span></h2>
       <span class="text-sm font-medium text-gray-500">{$basket.length} items</span>
     </div>
 
@@ -31,7 +32,7 @@
       <div class="space-y-4">
         <div class="flex justify-between text-sm">
           <span class="text-gray-600">Subtotal</span>
-          <span class="font-medium text-gray-800">${($basket.reduce((acc, item) => acc + item.quantity, 0) * 9.99).toFixed(2)}</span>
+          <span class="font-medium text-gray-800">${$basket.reduce((acc, item) => acc + (item.quantity * item.price), 0).toFixed(2)}</span>
         </div>
         <div class="flex justify-between text-sm">
           <span class="text-gray-600">Shipping</span>
@@ -39,7 +40,7 @@
         </div>
         <div class="border-t pt-4 flex justify-between">
           <span class="font-semibold text-gray-800">Total</span>
-          <span class="font-semibold text-gray-800">${($basket.reduce((acc, item) => acc + item.quantity, 0) * 9.99 + 4.99).toFixed(2)}</span>
+          <span class="font-semibold text-gray-800">${($basket.reduce((acc, item) => acc + (item.quantity * item.price), 0) + 4.99).toFixed(2)}</span>
         </div>
       </div>
     {:else}
@@ -50,7 +51,7 @@
   </div>
 
   <button
-    class="w-full mt-6 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2"
+    class="w-full mt-6 bg-green-600 hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2 cursor-pointer"
     on:click={handleClear}
     disabled={$basket.length === 0}
   >
