@@ -36,7 +36,7 @@
           <h2 class="text-lg font-semibold text-gray-800">
             Order Summary 
           </h2>
-          <span class="text-orange-500 font-bold">(Svelte)</span>
+          <span class="text-orange-500 font-bold text-lg">(Svelte)</span>
         </div>
         <span class="text-sm font-medium text-gray-500">
           {$basket.reduce((acc, item) => acc + item.quantity, 0)} total items
