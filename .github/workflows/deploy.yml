@@ -1,23 +1,31 @@
-name: Deploy to GitHub Pages
+name: Deploy Preview
 
 on:
   push:
     branches:
-      - main # or master
+      - main
 
 jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
+  deploy-docs:
     permissions:
       contents: write
+
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install --force
-      - run: npm run build
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+          cache: "npm"
+
+      - name: Install packages
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy docs
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          folder: dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
