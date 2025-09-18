@@ -1,0 +1,32 @@
+{
+  "name": "multi-framework-redux",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.1.1",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^4.7.0",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13",
+    "typescript": "~5.8.3",
+    "vite": "^7.1.6"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.9.0",
+    "@tailwindcss/vite": "^4.1.13",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
+    "svelte": "^5.39.2",
+    "vue": "^3.5.21"
+  }
+}
